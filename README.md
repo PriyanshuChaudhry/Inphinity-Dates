@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Inphinity Dates : Recurring Date Picker
 
-## Getting Started
+A reusable, test-driven, and accessible recurring date picker component built with Next.js, React, and Tailwind CSS. This project demonstrates modern React development patterns, including component-based architecture, state management with the Context API, and a full suite of unit and integration tests.
 
-First, run the development server:
 
-```bash
+![alt text](image.png)
+
+## Features
+
+- **Flexible Recurrence Rules:** Supports daily, weekly, monthly, and yearly recurrences.
+- **Custom Intervals:** Repeat events every 'X' days, weeks, months, or years.
+- **Specific Day Selection:** For weekly recurrences, select specific days of the week (e.g., every Monday and Friday).
+- **Advanced Monthly Patterns:** Configure monthly events on a specific date (e.g., the 15th) or a specific day (e.g., the second Tuesday).
+- **Interactive Previews:** A live calendar highlights all generated dates for immediate visual feedback.
+- **Reusable API:** The component is fully decoupled and provides its data back to any parent application via a simple `onDatesChange` callback.
+
+## Tech Stack
+
+- **Framework:** Next.js 14
+- **Library:** React 18
+- **Styling:** Tailwind CSS
+- **State Management:** React Context API
+- **Testing:** Jest & React Testing Library
+- **Icons:** Lucide React
+
+
+## Installation
+
+Install the NPM packages:
+   ```sh
+   npm install
+   ```
+
+## Running the Development Server
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open [http://localhost:3000](http://localhost:3000) with browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Tests
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project includes a full suite of unit and integration tests. To run the tests, use:
+```sh
+npm test
+```
+This command runs Jest in watch mode, which is ideal for development.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+**Priyanshu Chaudhary** <br>
+📧 Email: priyanshukaushal14@gmail.com <br>
+🌐 LinkedIn: https://www.linkedin.com/in/priyanshu-chaudhary-1b7593255/
