@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 
 const DatePickerContext = createContext();
 
@@ -21,29 +21,29 @@ export const DatePickerProvider = ({ children, onDatesChange = () => {} }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [isConfigured, setIsConfigured] = useState(false);
 
-  const toggleDayOfWeek = (day) => {
+  const toggleDayOfWeek = useCallback((day) => {
     setSelectedDaysOfWeek(prev => 
       prev.includes(day) 
         ? prev.filter(d => d !== day)
         : [...prev, day]
     );
-  };
+  }, []);
 
-  const nextMonth = () => {
-    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
-  };
+  const nextMonth = useCallback(() => {
+    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+  }, []);
 
-  const prevMonth = () => {
-    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1));
-  };
+  const prevMonth = useCallback(() => {
+    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+  }, []);
   
-  const applyConfiguration = () => {
+  const applyConfiguration = useCallback(() => {
     if (startDate && recurrenceType) {
       setIsConfigured(true);
     }
-  };
+  }, [startDate, recurrenceType]);
 
-  const resetConfiguration = () => {
+  const resetConfiguration = useCallback(() => {
     setRecurrenceType('');
     setStartDate('');
     setEndDate('');
@@ -55,12 +55,12 @@ export const DatePickerProvider = ({ children, onDatesChange = () => {} }) => {
     setSelectedDates([]);
     onDatesChange([]);
     setIsConfigured(false);
-  };
+  }, [onDatesChange]);
 
-  const handleSetSelectedDates = (dates) => {
+  const handleSetSelectedDates = useCallback((dates) => {
     setSelectedDates(dates);
     onDatesChange(dates);
-  };
+  }, [onDatesChange]);
 
   const value = {
     selectedDates, 
