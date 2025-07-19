@@ -34,7 +34,7 @@ const DatePickerLayout = () => {
   }, [
     isConfigured,
     startDate, endDate, recurrenceType, customInterval, 
-    selectedDaysOfWeek, monthlyPattern, monthlyDay, monthlyDayOfWeek, setSelectedDates
+    selectedDaysOfWeek, monthlyPattern, monthlyDay, monthlyDayOfWeek
   ]);
 
 
